@@ -3,7 +3,9 @@ import Note from "../models/Notes.js"
 export async function getAllNotes (req,res){
 try{
 const notes=await Note.find()
+
 res.status(200).json({success:true,message:"notes loaded successfully",data:notes})
+
 }catch(error){
     console.log("server fethcing data",error)
 res.status(500).json({success:false,message:"internal error"})
@@ -13,9 +15,15 @@ res.status(500).json({success:false,message:"internal error"})
 
 export async function getNote(req,res){
 try{
+const {id}=req.params
+const note=await Note.findById(id)
+
+if(!note) return res.status(400).json({success:false,message:"note doesn`t exist"})
+
+res.status(200).json({success:true,message:"note retreived successfully",data:note})
 
 }catch(error){
-    
+ res.status(500).json({success:false,message:"internal server error"})   
 }
 } 
 
