@@ -1,8 +1,14 @@
+import { Link } from 'lucide-react'
 import React from 'react'
 
 const CreateNote = () => {
   return (
-    <div>CreateNote</div>
+    <>
+    <Link to={"/"} className=''></Link>
+    <div className=''></div>
+    </>
+    
+    
   )
 }
 
