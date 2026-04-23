@@ -13,7 +13,7 @@ const Home = () => {
       try{
         const res=await axios.get(import.meta.env.VITE_API_URL)
         console.log(res.data)
-        setNotes(res.data)
+        setNotes(res.data.data)
       }catch(error){
         console.log("error fetching notes")
       }
